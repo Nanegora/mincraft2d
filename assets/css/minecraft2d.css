@@ -1,0 +1,275 @@
+
+
+html, body {
+    margin:0;
+}
+
+.d-none {
+    display: none !important;
+}
+
+#containers {
+    width:100vw;
+    height:100vh;
+    overflow: auto;
+    position: relative;
+}
+
+#slot {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    height:36px;
+    width: 100%;
+}
+#slots{
+    display: flex;
+}
+#slots>div {
+    width:48px;
+    height:48px;
+    margin:3px;
+    border:3px solid #333333;
+    background: rgba(40%,40%,40%,70%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.free .count {
+    display: none;
+}
+.selected{
+    border-color: #555555 !important;
+    background: rgba(70%,70%,70%,70%) !important;
+    box-shadow: 0 0 5px rgba(100%,100%,100%,70%);
+}
+.count {
+    display: block;
+    position: absolute;
+    bottom: 2px;
+    right:2px;
+    color: #ffffff;
+    z-index: 9000;
+    font-weight: bold;
+}
+
+#inventory {
+    position: fixed;
+    z-index: 9999;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inventory>div {
+    width: 1000px;
+    height: 700px;
+    border:3px solid #333333;
+    background: rgba(40%,40%,40%,80%);
+    position: relative;
+}
+
+#inventory #slots {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 48px;
+}
+
+#craft {
+    display: flex;
+    flex-wrap: wrap;
+    width: 180px;
+    margin: 48px;
+    border:3px solid #333333;
+    padding: 6px;
+}
+#craft>div {
+    width:48px;
+    height:48px;
+    margin:3px;
+    border:3px solid #333333;
+    background: rgba(40%,40%,40%,70%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: .3s ease;
+}
+
+#blocks {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+}
+.bk/*, .bk:after, .bk:before*/ {
+    width:30px;
+    height:30px;
+    border:1px solid #666;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 100;
+    position: relative;
+    transition-delay: .1ms;
+    transition-timing-function: linear;
+    transition-duration: 5s;
+}
+/*.bk:after {
+    position: absolute;
+    z-index: 100;
+    display: block;
+    content:'';
+    transform: skew(-60deg, 0deg) scaleY(31%);
+    top: -52px;
+    left: 20px;
+}
+.bk:before {
+    position: absolute;
+    z-index: 100;
+    display: block;
+    content:'';
+    transform: skew(0, -30deg) scaleX(55%);
+    top: -12px;
+    left: 59px;
+}*/
+.bk.mousedown/*,.bk.mousedown:after,.bk.mousedown:before*/ {
+    opacity: .5;
+    border-color:transparent;
+}
+
+.bk.bk-air/*, .bk.bk-air:after, .bk.bk-air:before*/ {
+    border-color:transparent;
+}
+
+.bk.bk-stone/*, .bk.bk-stone:after, .bk.bk-stone:before*/ {
+    background-image: url("../images/stone.png");
+}
+
+.bk.bk-deepslate/*, .bk.bk-stone:after, .bk.bk-stone:before*/ {
+    background-image: url("../images/deepslate.png");
+}
+.bk.bk-coal_ore/*, .bk.bk-stone:after, .bk.bk-stone:before*/ {
+    background-image: url("../images/coal_ore.png");
+}
+.bk.bk-iron_ore/*, .bk.bk-stone:after, .bk.bk-stone:before*/ {
+    background-image: url("../images/iron_ore.png");
+}
+.bk.bk-gold_ore/*, .bk.bk-stone:after, .bk.bk-stone:before*/ {
+    background-image: url("../images/gold_ore.png");
+}
+.bk.bk-diamond_ore/*, .bk.bk-stone:after, .bk.bk-stone:before*/ {
+    background-image: url("../images/diamond_ore.png");
+}
+.bk.bk-coal_deepslate_ore/*, .bk.bk-stone:after, .bk.bk-stone:before*/ {
+    background-image: url("../images/deepslate_coal_ore.png");
+}
+.bk.bk-iron_deepslate_ore/*, .bk.bk-stone:after, .bk.bk-stone:before*/ {
+    background-image: url("../images/deepslate_iron_ore.png");
+}
+.bk.bk-gold_deepslate_ore/*, .bk.bk-stone:after, .bk.bk-stone:before*/ {
+    background-image: url("../images/deepslate_gold_ore.png");
+}
+.bk.bk-diamond_deepslate_ore/*, .bk.bk-stone:after, .bk.bk-stone:before*/ {
+    background-image: url("../images/deepslate_diamond_ore.png");
+}
+.bk.bk-grass/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/grass_block_side.png");
+}
+.bk.bk-grass_snow/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/grass_block_snow.png");
+}
+.bk.bk-dirt/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/dirt.png");
+}
+.bk.bk-sand/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/sand.png");
+}
+.bk.bk-water/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/water.png");
+}
+.bk.bk-lava/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/lava.png");
+}
+.bk.bk-obsidian/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/obsidian.png");
+}
+.bk.bk-barrel/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/barrel_side.png");
+}
+.bk.bk-oak_log/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/stripped_oak_log.png");
+}
+.bk.bk-leaves/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/leaves.png");
+}
+.bk.bk-water/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/water.png");
+}
+.bk.bk-gravel/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/gravel.png");
+}
+.bk.bk-pickaxe_wood/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/wood_pickaxe.png");  
+}
+.bk.bk-pickaxe_stone/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/stone_pickaxe.png");
+}
+.bk.bk-pickaxe_iron/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/iron_pickaxe.png");
+}
+.bk.bk-pickaxe_gold/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/gold_pickaxe.png");
+}
+.bk.bk-pickaxe_diamond/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/diamond_pickaxe.png");
+}
+
+
+.bk.bk-axe_wood/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/wood_axe.png");  
+}
+.bk.bk-axe_stone/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/stone_axe.png");
+}
+.bk.bk-axe_iron/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/iron_axe.png");
+}
+.bk.bk-axe_gold/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/gold_axe.png");
+}
+.bk.bk-axe_diamond/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/diamond_axe.png");
+}
+
+
+
+.bk.bk-barrel_renforced/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/barrel_renforced.png");
+}
+.bk.bk-coal/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/coal.png");
+}
+.bk.bk-iron/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/iron_ingot.png");
+}
+.bk.bk-gold/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/gold_ingot.png");
+}
+.bk.bk-diamond/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/diamond.png");
+}
+.bk.bk-furnace/*, .bk.bk-grass:before*/ {
+    background-image: url("../images/furnace_front.png");
+}
+/*
+.bk.bk-grass:after {
+    background-image: url("../images/dirt_grass_z.webp");
+}*/
