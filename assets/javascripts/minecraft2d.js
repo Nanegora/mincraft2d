@@ -1,5 +1,4 @@
 
-console.log('test ');
 let inventory = {
     0:{'material':'stone', 'count':1},
     1:{'material':'stone', 'count':1},
